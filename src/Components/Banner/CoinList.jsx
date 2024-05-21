@@ -178,10 +178,10 @@ const CoinList = () => {
                           </Link>
                         </TableCell>
                         <TableCell className={classes.tableRow} align="center">
-                          {numberSeperatedByComa(coin.price)}
+                          {numberSeperatedByComa(`$ ${coin.price}`)}
                         </TableCell>
                         <TableCell className={classes.tableRow} align="center">
-                          {numberSeperatedByComa(coin.marketCap)}
+                          {numberSeperatedByComa(`$ ${coin.marketCap}`)}
                         </TableCell>
                         <TableCell className={classes.tableRow} align="center">
                           <span className={classes.coinChange}> {coin.change}</span>

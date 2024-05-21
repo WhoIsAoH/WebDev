@@ -13,9 +13,9 @@ const CoinPage = () => {
   const [loading, setLoading] = useState(true);
   const classes = useStyles();
 
-  // function numberSeperatedByComa(x) {
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
+  function numberSeperatedByComa(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
   useEffect(() => {
     const fetchCoin = async () => {
@@ -48,7 +48,7 @@ const CoinPage = () => {
           <>
             <Grid container spacing={2}>
               {/* Left Side */}
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} md={5}>
                 <div className={classes.leftSide}>
                   {/* sidebar */}
                   <div className={classes.imgWrapper}>
@@ -64,13 +64,14 @@ const CoinPage = () => {
                         <i className="fa-solid fa-ranking-star"></i> <span>Rank : </span> {coinDetail?.rank}
                       </li>
                       <li className={classes.listTitle}>
-                        <i className="fa-solid fa-dollar-sign"></i> <span>Price : </span> {coinDetail?.priceAt}
+                        <i className="fa-solid fa-dollar-sign"></i> <span>Price : </span>
+                        {numberSeperatedByComa(`$ ${coinDetail?.priceAt}`)}
                       </li>
                       <li className={classes.listTitle}>
                         <i className="fa-solid fa-bolt"></i> <span>Change : </span> {coinDetail?.change}
                       </li>
                       <li className={classes.listTitle}>
-                        <i className="fa-solid fa-chart-line"></i> <span>MarketCap : </span> {coinDetail?.marketCap}
+                        <i className="fa-solid fa-chart-line"></i> <span>MarketCap : </span> {numberSeperatedByComa(`$ ${coinDetail?.marketCap}`)}
                       </li>
                     </ul>
                   </div>
@@ -81,7 +82,7 @@ const CoinPage = () => {
               </Grid>
 
               {/* Right Side */}
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} md={7}>
                 {coinDetail && <CoinInfo coin={coinDetail} />}
               </Grid>
             </Grid>
