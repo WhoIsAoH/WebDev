@@ -199,5 +199,4 @@ const CoinGlobalStats = () => {
     </Container>
   );
 };
-
 export default CoinGlobalStats;

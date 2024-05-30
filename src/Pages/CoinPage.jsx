@@ -47,7 +47,6 @@ const CoinPage = () => {
         ) : (
           <>
             <Grid container spacing={2}>
-              {/* Left Side */}
               <Grid item xs={12} md={5}>
                 <div className={classes.leftSide}>
                   {/* sidebar */}
@@ -80,8 +79,6 @@ const CoinPage = () => {
                   <Link to={`/coin/${id}/price/history`}>Price History</Link>
                 </Button>
               </Grid>
-
-              {/* Right Side */}
               <Grid item xs={12} md={7}>
                 {coinDetail && <CoinInfo coin={coinDetail} />}
               </Grid>
